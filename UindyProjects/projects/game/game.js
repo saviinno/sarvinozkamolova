@@ -12,14 +12,14 @@ function loadGame(){
         globalThis.dx = 2;
         globalThis.dy = -2;
         globalThis.paddleHeight = 10;
-        globalThis.paddleWidth = 75;
+        globalThis.paddleWidth = 90;
         globalThis.paddleX = (box.width-paddleWidth)/2;
         globalThis.rightPressed = false;
         globalThis.leftPressed = false;
-        globalThis.brickRowCount = 5;
-        globalThis.brickColumnCount = 7;
-        globalThis.brickWidth = 75;
-        globalThis.brickHeight = 20;
+        globalThis.brickRowCount = 17;
+        globalThis.brickColumnCount = 10;
+        globalThis.brickWidth = 85;
+        globalThis.brickHeight = 30;
         globalThis.brickPadding = 10;
         globalThis.brickOffsetTop = 30;
         globalThis.brickOffsetLeft = 30;
@@ -71,7 +71,7 @@ function loadGame(){
                         b.status = 0;
                         score++;
                         if(score == brickRowCount*brickColumnCount) {
-                            alert("YOU WIN, CONGRATS!");
+                            alert("CONGRATUFLATIONS, YOU WON!");
                             document.location.reload();
                         }
                     }
@@ -82,7 +82,7 @@ function loadGame(){
 
     function drawBall() {
         doBox.beginPath();
-        doBox.arc(x, y, ballRadius, 0, Math.PI*2);
+        doBox.arc(x, y, ballRadius, 0, 10);
         doBox.fillStyle = "#94bbe9";
         doBox.fill();
         doBox.closePath();
@@ -112,14 +112,14 @@ function loadGame(){
         }
     }
     function drawScore() {
-        doBox.font = "16px Arial";
+        doBox.font = "20px Arial, Bold";
         doBox.fillStyle = "#94bbe9";
-        doBox.fillText("Score: "+score, 8, 20);
+        doBox.fillText("Your Score: "+score, 25, 20);
     }
     function drawLives() {
-        doBox.font = "16px Arial";
+        doBox.font = "20px Arial";
         doBox.fillStyle = "#94bbe9";
-        doBox.fillText("Lives: "+lives, box.width-65, 20);
+        doBox.fillText("Lives Left: "+lives, box.width-150, 20);
     }
 
     function draw() {
